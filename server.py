@@ -21,7 +21,10 @@ OUTPUT_DIR = Path("outputs")
 UPLOAD_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+# Template can be in root or in same folder as server.py
 TEMPLATE_PATH = "template.xlsx"
+if not Path(TEMPLATE_PATH).exists():
+    TEMPLATE_PATH = Path(__file__).parent / "template.xlsx"
 
 # ── Brochure mapping ──────────────────────────────────────────────────────────
 BROCHURES = {
